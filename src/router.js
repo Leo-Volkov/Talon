@@ -1,10 +1,11 @@
-import { createRouter } from 'vue-router'
-import HallTV from '../views/HallTV.vue'
-import TerminadAburutuent from '../views/TerminadAburutuent.vue'
-import TerminadCommission from '../views/TerminadCommission.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import HallTV from './views/HallTV.vue';
+import TerminadAburutuent from './views/TerminadAburutuent.vue';
+import TerminadCommission from './views/TerminadCommission.vue';
 
 
 const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/HallTV',
