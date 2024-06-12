@@ -10,11 +10,36 @@ import { RouterView } from 'vue-router'
 * {
   margin: 0;
   padding: 0;
+  transition-duration: .2s;
 }
+html, #app {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background-color: rgb(56, 104, 216);
+  height: 100%;
 }
+
 :root {
   --button-color: rgb(255, 106, 0);
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 30px;
+}
+
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
+  text-align: center;
+  font-weight: 700;
 }
 </style>
