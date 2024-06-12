@@ -12,7 +12,9 @@ export default {
 </script>
 
 <template>
-200
+  <div>
+    200
+  </div>
 </template>
 
 <style scoped>
