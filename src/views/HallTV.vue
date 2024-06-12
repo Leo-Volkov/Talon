@@ -82,7 +82,7 @@ export default {
       </div>
       <div class="col col2">
         <div class="row video-mask">
-          <video src="../asset\KS54_2012.mp4" poster="../asset/image.png" autoplay muted playsinline type="video/mp4"></video>
+          <video src="../asset\KS54_2012.mp4" autoplay muted playsinline type="video/mp4"></video>
         </div>
         <div class="row queue">
           <h2>Следующие в очереде</h2>
