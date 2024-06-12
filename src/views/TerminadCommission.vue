@@ -38,29 +38,36 @@ export default {
     this.startTimer()
   },
   methods: {
-    // Включение времени
+    // Включение и обновление времени
     startTimer() {
       window.setInterval(() => {
         this.date = new Date()
-      }, 60000);
+      }, 1000);
     },
     // испровляет формат даты и времени
     CheckingZeroAdditionTime(getTupeDate) {
-            if (getTupeDate < 10) {
-                return "0" + getTupeDate;
-            } else {
-                return getTupeDate;
-            }
-        },
+      if (getTupeDate < 10) {
+        return "0" + getTupeDate;
+      } else {
+        return getTupeDate;
+      }
+    },
+
+    /*Нажатие на кнопку "Пригласить" и 
+    вызывается номер карты и меняется интерфейс*/
     CallTalon() {
       this.preglossion_button = false;
       setTimeout(() => {
         this.activating_call_button = false
-      }, 60000)
+      }, 30000)
     },
-    startCommission(){
+
+    /*  */
+    startCommission() {
       this.event_preglossion = false
     },
+
+    /*  */
     endCommission() {
       this.event_preglossion = true
       this.activating_call_button = true
@@ -76,8 +83,10 @@ export default {
       <h1 class="col">Электронная<br>очередь</h1>
       <div class="col align-self-center row data_nav">
         <p class="col">{{ '1' }} каб.</p>
-        <p class="col">{{CheckingZeroAdditionTime(this.date.getDate()) }}.{{ CheckingZeroAdditionTime(this.date.getMonth() + 1)  }}</p>
-        <p class="col">{{ CheckingZeroAdditionTime(this.date.getHours())  }}:{{ CheckingZeroAdditionTime(this.date.getMinutes())  }}</p>
+        <p class="col">{{ CheckingZeroAdditionTime(this.date.getDate()) }}.{{
+          CheckingZeroAdditionTime(this.date.getMonth() + 1) }}</p>
+        <p class="col">{{ CheckingZeroAdditionTime(this.date.getHours()) }}:{{
+          CheckingZeroAdditionTime(this.date.getMinutes()) }}</p>
       </div>
     </div>
   </header>
@@ -87,8 +96,9 @@ export default {
       <div class="col">
         <h2>Сейчас в очереди</h2>
         <div class="cart container">
-          <h3 class="num_talon">{{ 'А10' }}</h3>
-          <h3 class="name_abu">{{ "Иванов" }} {{ "Иван" }} {{ "Ивановичь" }}</h3>
+          <h3 class="num_talon">{{ this.carts.now.num }}</h3>
+          <h3 class="name_abu">{{ this.carts.now.name }} {{ this.carts.now.surname }} {{ this.carts.now.patronymic }}
+          </h3>
         </div>
       </div>
       <div class="col flex">
@@ -145,7 +155,7 @@ export default {
           <div class="cart col-md-auto">
             {{ cart.num }}
           </div>
-          <p class="col">Поступление в очереть {{ cart.waitingTime }}</p>
+          <p class="col">Поступление в очередь {{ cart.waitingTime }}</p>
           <div class="cabinet col-md-auto">
             Окно {{ cart.window }}
           </div>
