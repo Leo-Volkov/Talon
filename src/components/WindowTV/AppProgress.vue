@@ -1,5 +1,7 @@
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   data() {
     return {
     }
@@ -10,13 +12,11 @@ export default {
   methods: {
 
   }
-}
+})
 </script>
 
 <template>
   <div class="process">
-
-
     <div class="cart">
       <p class="num_doc">A3</p>
       <p class="window">Окно 3</p>

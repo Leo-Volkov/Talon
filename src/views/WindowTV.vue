@@ -1,13 +1,15 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import Ks54Video from '../components/Ks54Video.vue';
-import AppProgress from '../components/AppProgress.vue';
-import AppQueue from '../components/AppQueue.vue';
+import AppProgress from '../components/WindowTV/AppProgress.vue';
+import AppQueue from '../components/WindowTV/AppQueue.vue';
 
 
 export default defineComponent({
   components: {
-    Ks54Video
+    Ks54Video,
+    AppProgress,
+    AppQueue
   },
   data() {
     return {
@@ -64,7 +66,7 @@ export default defineComponent({
   <main>
     <div class="row">
       <div class="col-xl-5 col">
-        <!-- Процесс толончиков -->
+        <!-- Прогресс толончиков -->
         <AppProgress></AppProgress>
       </div>
       <div class="col col2">
@@ -74,7 +76,7 @@ export default defineComponent({
         </div>
         <div class="row">
           <!-- Очередь толончиков -->
-           <AppQueue></AppQueue>
+          <AppQueue></AppQueue>
         </div>
       </div>
     </div>
