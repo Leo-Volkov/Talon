@@ -18,7 +18,6 @@ import { RouterView } from 'vue-router'
 
 body {
   background-color: rgb(56, 104, 216);
-  height: 100%;
 }
 
 :root {

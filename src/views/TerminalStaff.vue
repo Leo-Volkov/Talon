@@ -1,38 +1,22 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
+import NextQueue from '../components/Staff/NextQueue.vue';
 
 export default defineComponent({
+  components: {
+    NextQueue
+  },
   data() {
     return {
       date: new Date(),
       event_preglossion: true,
       activating_call_button: true,
       preglossion_button: true,
-      tickets: {
-        ticket: {
-          num: '10A',
-          surname: 'Иван',
-          name: 'Ивонов',
-          patronymic: 'Иванович',
-        },
-        collection: [
-          {
-            num: '11A',
-            surname: 'Иван',
-            name: 'Ивонов',
-            patronymic: 'Иванович',
-            waitingTime: '11:00',
-            window: '1'
-          },
-          {
-            num: '12A',
-            surname: 'Иван',
-            name: 'Ивонов',
-            patronymic: 'Иванович',
-            waitingTime: '11:00',
-            window: '1'
-          }
-        ]
+      ticket: {
+        num: 'ВБ10',
+        surname: 'Иван',
+        name: 'Ивонов',
+        patronymic: 'Иванович',
       }
     }
   },
@@ -58,9 +42,7 @@ export default defineComponent({
     /* Приглашение по талончику */
     invite_Ticket() {
       this.preglossion_button = false;
-      setTimeout(() => {
-        this.activating_call_button = false
-      }, 100)
+      this.activating_call_button = false;
     },
 
     /* Повторное приглашение по талончику */
@@ -102,9 +84,9 @@ export default defineComponent({
       <div class="col">
         <h2>Сейчас в очереди</h2>
         <div class="cart container">
-          <h3 class="num_talon">{{ this.tickets.ticket.num }}</h3>
-          <h3 class="name_abu">{{ this.tickets.ticket.name }} {{ this.tickets.ticket.surname }} {{
-            this.tickets.ticket.patronymic }}
+          <h3 class="num_talon">{{ this.ticket.num }}</h3>
+          <h3 class="name_abu">{{ this.ticket.name }} {{ this.ticket.surname }} {{
+            this.ticket.patronymic }}
           </h3>
         </div>
       </div>
@@ -134,7 +116,7 @@ export default defineComponent({
 
 
 
-    <div v-if="this.event_preglossion"> <!-- секция отвечает за вызов человека на приём -->
+    <div v-if="this.event_preglossion" class="flax_button"> <!-- секция отвечает за вызов человека на приём -->
       <button @click="recall_Ticket()" :class="{ none_block: this.activating_call_button }">
         Повторить вызов
       </button>
@@ -142,7 +124,7 @@ export default defineComponent({
         /
       </button> -->
     </div>
-    <div v-else>
+    <div v-else class="flax_button">
       <button @click="200">Сменить тип талона</button>
       <button class="end" @click="end_Ticket()">Завершить</button>
     </div>
@@ -156,23 +138,145 @@ export default defineComponent({
 
 
     <section id="3">
-      <h2>Следующие:</h2>
-      <div class="flax">
-        <button v-for="(cart, index) in this.tickets.collection" :key="index" class="next_card row" @click="200">
-          <div class="cart col-md-auto">
-            {{ cart.num }}
-          </div>
-          <p class="col">Поступление в очередь {{ cart.waitingTime }}</p>
-          <div class="cabinet col-md-auto">
-            Окно {{ cart.window }}
-          </div>
-        </button>
-      </div>
+      <NextQueue></NextQueue>
     </section>
   </main>
 </template>
 
 <style scoped>
+/*///  адаптив для окошечек ПК ///*/
+header {
+  color: #ffffff;
+  margin: 2vh;
+}
+
+header .data_nav {
+  border: 0.6vw solid var(--button-color);
+  padding: 0.6vw 0.5vw;
+  margin-right: 1.5vw;
+}
+
+header .data_nav p {
+  text-align: center;
+  margin: 0;
+  /* width: 14vw; */
+
+  font-size: 2.5vw;
+}
+
+header h1 {
+  font-size: 3.5vw;
+  text-align: left;
+}
+
+main {
+  padding: 2.5vh;
+}
+
+section {
+  margin-bottom: 1vh;
+}
+
+section[id="1"] {}
+
+section[id="1"] h2 {
+  font-size: 3.3vh;
+  color: #ffffff;
+
+  margin-bottom: 1vh;
+}
+
+section[id="1"] .cart {
+  width: 30vh;
+  /* min-height: 26vh; */
+  background-color: #ffffff;
+  padding-top: 2vh;
+}
+
+section[id="1"] .cart .num_talon {
+  font-size: 9vh;
+
+  color: #000000;
+  margin-bottom: 1.3vh;
+}
+
+section[id="1"] .cart .name_abu {
+  overflow-wrap: normal;
+  /* не поддерживает IE, Firefox; является копией word-wrap */
+  word-wrap: break-word;
+  word-break: keep-all;
+  /* не поддерживает Opera12.14, значение keep-all не поддерживается IE, Chrome */
+  line-break: strict;
+  /* нет поддержки для русского языка */
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  /* значение auto не поддерживается Chrome */
+  font-size: 3.2vh;
+  padding-bottom: 2vh;
+
+  color: #000000;
+}
+
+section[id="1"] button {
+  width: 75%;
+  height: 10vh;
+  background-color: var(--button-color);
+  color: #ffffff;
+  font-size: 3vh;
+  border: none;
+}
+
+section[id="1"] .flex {
+  display: flex;
+  gap: 3.5vh;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  padding-top: 5vh;
+}
+
+section[id="1"] .flex div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section[id="1"]+div button {
+  width: 90%;
+  padding: 2vh 0;
+  background-color: var(--button-color);
+
+  border: none;
+  color: #ffffff;
+  font-size: 3vh;
+  margin: 2vh 0;
+}
+
+section[id="1"]+div .end {
+  background-color: #ffffff;
+  color: #000;
+  box-shadow: 0px 0px 0px 1vh rgb(255, 0, 0);
+}
+
+.flax_button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section[id="2"] {
+  margin-top: -1.5vh;
+}
+
+.none_block {
+  display: none;
+}
+
+/*///  адаптив для не известного экранчика  ///*/
+/* 
 header {
   color: #ffffff;
   margin: 3vw;
@@ -200,51 +304,47 @@ main {
   padding: 3vw;
 }
 
-main section {
+section {
   margin-bottom: 2vw;
 }
 
-main section[id="1"] {}
+section[id="1"] {}
 
-main section[id="1"] h2 {
+section[id="1"] h2 {
   font-size: 4vw;
   color: #ffffff;
 
   margin-bottom: 1vw;
 }
 
-main section[id="1"] .cart {
+section[id="1"] .cart {
   width: 45vw;
   min-height: 40vw;
   background-color: #ffffff;
   padding-top: 3vw;
 }
 
-main section[id="1"] .cart .num_talon {
+section[id="1"] .cart .num_talon {
   font-size: 12vw;
 
   color: #000000;
   margin-bottom: 6vw;
 }
 
-main section[id="1"] .cart .name_abu {
+section[id="1"] .cart .name_abu {
   overflow-wrap: normal;
-  /* не поддерживает IE, Firefox; является копией word-wrap */
   word-wrap: break-word;
   word-break: keep-all;
-  /* не поддерживает Opera12.14, значение keep-all не поддерживается IE, Chrome */
   line-break: strict;
-  /* нет поддержки для русского языка */
   -webkit-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto;
-  /* значение auto не поддерживается Chrome */
   font-size: 4vw;
 
   color: #000000;
 }
 
-main section[id="1"] button {
+section[id="1"] button {
   width: 90%;
   height: 17vw;
   background-color: var(--button-color);
@@ -253,7 +353,7 @@ main section[id="1"] button {
   border: none;
 }
 
-main section[id="1"] .flex {
+section[id="1"] .flex {
   display: flex;
   gap: 6vw;
   flex-direction: column;
@@ -263,14 +363,14 @@ main section[id="1"] .flex {
   padding-top: 5vw;
 }
 
-main section[id="1"] .flex div {
+section[id="1"] .flex div {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-main section[id="1"]+div button {
+section[id="1"]+div button {
   width: 100%;
   padding: 35px 0;
   background-color: var(--button-color);
@@ -281,27 +381,27 @@ main section[id="1"]+div button {
   margin: 6vw 0;
 }
 
-main section[id="1"]+div .end {
+section[id="1"]+div .end {
   background-color: #ffffff;
   color: #000;
   box-shadow: 0px 0px 0px 1vw rgb(255, 0, 0);
 }
 
-main section[id="2"] {}
+section[id="2"] {}
 
 
-main section[id="3"] {
+section[id="3"] {
   margin-top: -1.5vw;
 }
 
-main section[id="3"] h2 {
+section[id="3"] h2 {
   font-size: 6vw;
   margin: 3vw 0;
   text-align: left;
   color: #ffffff;
 }
 
-main section[id="3"] .flax {
+section[id="3"] .flax {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -309,13 +409,13 @@ main section[id="3"] .flax {
   gap: 3vw;
 }
 
-main section[id="3"] button {
+section[id="3"] button {
   width: 100%;
   height: 24vw;
   padding: 2vw 4vw;
 }
 
-main section[id="3"] button .cart {
+section[id="3"] button .cart {
   width: 15vw;
   height: 8vw;
   background-color: var(--button-color);
@@ -326,11 +426,11 @@ main section[id="3"] button .cart {
   font-size: 6vw;
 }
 
-main section[id="3"] button p {
+section[id="3"] button p {
   font-size: 6vw;
 }
 
-main section[id="3"] button .cabinet {
+section[id="3"] button .cabinet {
   height: 8vw;
   border: 0.6vw solid red;
   display: flex;
@@ -345,4 +445,5 @@ main section[id="3"] button .cabinet {
 .none_block {
   display: none;
 }
+*/
 </style>
