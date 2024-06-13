@@ -6,8 +6,8 @@ export default {
       event_preglossion: true,
       activating_call_button: true,
       preglossion_button: true,
-      carts: {
-        now: {
+      tickets: {
+        ticket: {
           num: '10A',
           surname: 'Иван',
           name: 'Ивонов',
@@ -53,22 +53,26 @@ export default {
       }
     },
 
-    /*Нажатие на кнопку "Пригласить" и 
-    вызывается номер карты и меняется интерфейс*/
-    CallTalon() {
+    /* Приглашение по талончику */
+    invite_Ticket() {
       this.preglossion_button = false;
       setTimeout(() => {
         this.activating_call_button = false
-      }, 30000)
+      }, 100)
     },
 
-    /*  */
-    startCommission() {
+    /* Повторное приглашение по талончику */
+    recall_Ticket() {
+
+    },
+
+    /* Начать обслуживание талончика */
+    start_Talon() {
       this.event_preglossion = false
     },
 
-    /*  */
-    endCommission() {
+    /* Завершить обслуживание талончика */
+    end_Ticket() {
       this.event_preglossion = true
       this.activating_call_button = true
       this.preglossion_button = true;
@@ -96,8 +100,9 @@ export default {
       <div class="col">
         <h2>Сейчас в очереди</h2>
         <div class="cart container">
-          <h3 class="num_talon">{{ this.carts.now.num }}</h3>
-          <h3 class="name_abu">{{ this.carts.now.name }} {{ this.carts.now.surname }} {{ this.carts.now.patronymic }}
+          <h3 class="num_talon">{{ this.tickets.ticket.num }}</h3>
+          <h3 class="name_abu">{{ this.tickets.ticket.name }} {{ this.tickets.ticket.surname }} {{
+            this.tickets.ticket.patronymic }}
           </h3>
         </div>
       </div>
@@ -105,21 +110,21 @@ export default {
 
         <!-- меняется кнопка -->
         <div v-if="this.event_preglossion">
-          <button v-if="this.preglossion_button" @click="CallTalon()">
+          <button v-if="this.preglossion_button" @click="invite_Ticket()">
             <p>Пригласить</p>
           </button>
-          <button v-else @click="startCommission()">
+          <button v-else @click="start_Talon()">
             <p>Начать</p>
           </button>
         </div>
         <div v-else>
           <button @click="200">
-            <p>Вернуть в очереть</p>
+            <p>Вернуть в очередь</p>
           </button>
         </div>
 
         <button @click="200">
-          <p>Найти</p>
+          <p>Искать по AIS</p>
         </button>
       </div>
     </section>
@@ -128,16 +133,16 @@ export default {
 
 
     <div v-if="this.event_preglossion"> <!-- секция отвечает за вызов человека на приём -->
-      <button @click="console.log(200)" :class="{ none_block: this.activating_call_button }">
+      <button @click="recall_Ticket()" :class="{ none_block: this.activating_call_button }">
         Повторить вызов
       </button>
-      <button @click="console.log(200)" style="visibility: collapse;">
+      <!-- <button @click="console.log(200)" style="visibility: collapse;">
         /
-      </button>
+      </button> -->
     </div>
     <div v-else>
-      <button @click="200">Сменить тип толона</button>
-      <button class="end" @click="endCommission()">Завершить</button>
+      <button @click="200">Сменить тип талона</button>
+      <button class="end" @click="end_Ticket()">Завершить</button>
     </div>
 
 
@@ -151,7 +156,7 @@ export default {
     <section id="3">
       <h2>Следующие:</h2>
       <div class="flax">
-        <button v-for="(cart, index) in this.carts.collection" :key="index" class="next_card row" @click="200">
+        <button v-for="(cart, index) in this.tickets.collection" :key="index" class="next_card row" @click="200">
           <div class="cart col-md-auto">
             {{ cart.num }}
           </div>
@@ -347,6 +352,6 @@ main section[id="3"] button .cabinet {
 
 
 .none_block {
-  visibility: collapse;
+  display: none;
 }
 </style>

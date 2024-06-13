@@ -1,26 +1,26 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HallTV from './views/HallTV.vue';
-import TerminadAburutuent from './views/TerminadAburutuent.vue';
-import TerminadCommission from './views/TerminadCommission.vue';
+import WindowTV from './views/WindowTV.vue';
+import TerminalKiosk from './views/TerminalKiosk.vue';
+import TerminalStaff from './views/TerminalStaff.vue';
 
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/HallTV',
-      name: 'HallTV',
-      component: HallTV
+      path: '/TV',
+      name: 'TV',
+      component: WindowTV
     },
     {
-      path: '/TerminadAburutuent',
-      name: 'TerminadAburutuent',
-      component: TerminadAburutuent
+      path: '/kiosk',
+      name: 'kiosk',
+      component: TerminalKiosk
     },
     {
-      path: '/TerminadCommission',
-      name: 'TerminadCommission',
-      component: TerminadCommission
+      path: '/staff',
+      name: 'staff',
+      component: TerminalStaff
     },
   ]
 })
