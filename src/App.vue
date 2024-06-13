@@ -12,6 +12,7 @@ import { RouterView } from 'vue-router'
   padding: 0;
   transition-duration: .2s;
   border-radius: 2vw;
+  font-weight: 700;
 }
 
 

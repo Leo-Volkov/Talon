@@ -207,7 +207,7 @@ main {
   justify-content: center;
   align-items: center;
   background-color: var(--button-color);
-
+  border-radius: 1.5vw;
   font-size: 3.5vw;
   font-weight: 700;
   color: #ffffff;

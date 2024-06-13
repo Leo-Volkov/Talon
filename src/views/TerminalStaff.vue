@@ -175,63 +175,59 @@ export default defineComponent({
 <style scoped>
 header {
   color: #ffffff;
-  margin: 33px 35px 40px 37px;
+  margin: 3vw;
 }
 
 header .data_nav {
   height: min-content;
-  border: 7px solid var(--button-color);
-  border-radius: 30px;
-  padding: 25px 60px 23px;
+  border: 0.7vw solid var(--button-color);
+  padding: 1.5vw 1.8vw;
 }
 
 header .data_nav p {
   text-align: center;
   margin: 0;
-  font-weight: 700;
-  font-size: 32px;
+
+  font-size: 3.5vw;
 }
 
 header h1 {
-  font-size: 50px;
+  font-size: 5vw;
   text-align: left;
 }
 
 main {
-  padding: 38px;
+  padding: 3vw;
 }
 
 main section {
-  margin-bottom: 25px;
-
+  margin-bottom: 2vw;
 }
 
 main section[id="1"] {}
 
 main section[id="1"] h2 {
-  font-size: 40px;
+  font-size: 4vw;
   color: #ffffff;
-  font-weight: 700;
-  margin-bottom: 16px;
+
+  margin-bottom: 1vw;
 }
 
 main section[id="1"] .cart {
-  width: 500px;
-  min-height: 400px;
+  width: 45vw;
+  min-height: 40vw;
   background-color: #ffffff;
-  border-radius: 30px;
-  padding-top: 47px;
+  padding-top: 3vw;
 }
 
 main section[id="1"] .cart .num_talon {
-  font-size: 128px;
-  font-weight: 700;
+  font-size: 12vw;
+
   color: #000000;
-  margin-bottom: 63px;
+  margin-bottom: 6vw;
 }
 
 main section[id="1"] .cart .name_abu {
-  width: 450px;
   overflow-wrap: normal;
   /* не поддерживает IE, Firefox; является копией word-wrap */
   word-wrap: break-word;
@@ -243,30 +239,28 @@ main section[id="1"] .cart .name_abu {
   -ms-hyphens: auto;
   hyphens: auto;
   /* значение auto не поддерживается Chrome */
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 4vw;
+
   color: #000000;
 }
 
 main section[id="1"] button {
   width: 90%;
-  height: 172px;
-
+  height: 17vw;
   background-color: var(--button-color);
   color: #ffffff;
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 4vw;
   border: none;
 }
 
 main section[id="1"] .flex {
   display: flex;
-  gap: 60px;
+  gap: 6vw;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  padding-top: 58px;
+  padding-top: 5vw;
 }
 
 main section[id="1"] .flex div {
@@ -283,27 +277,26 @@ main section[id="1"]+div button {
 
   border: none;
   color: #ffffff;
-  font-size: 48px;
-  font-weight: 700;
-  margin: 75px 0 75px 0;
+  font-size: 5vw;
+  margin: 6vw 0;
 }
 
 main section[id="1"]+div .end {
   background-color: #ffffff;
   color: #000;
-  box-shadow: 0px 0px 0px 10px rgb(255, 0, 0);
+  box-shadow: 0px 0px 0px 1vw rgb(255, 0, 0);
 }
 
 main section[id="2"] {}
 
 
 main section[id="3"] {
-  margin-top: 50px;
+  margin-top: -1.5vw;
 }
 
 main section[id="3"] h2 {
-  font-size: 60px;
-  margin: 50px 0 40px 0;
+  font-size: 6vw;
+  margin: 3vw 0;
   text-align: left;
   color: #ffffff;
 }
@@ -312,44 +305,40 @@ main section[id="3"] .flax {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  gap: 35px;
+  align-items: center;
+  gap: 3vw;
 }
 
 main section[id="3"] button {
   width: 100%;
-  height: 260px;
-  padding: 27px 43px 27px 43px;
+  height: 24vw;
+  padding: 2vw 4vw;
 }
 
 main section[id="3"] button .cart {
-  width: 150px;
-  height: 82px;
-  border-radius: 30px;
+  width: 15vw;
+  height: 8vw;
   background-color: var(--button-color);
   display: flex;
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  font-size: 64px;
-  font-weight: 700;
+  font-size: 6vw;
 }
 
 main section[id="3"] button p {
-  font-size: 60px;
-  font-weight: 700;
+  font-size: 6vw;
 }
 
 main section[id="3"] button .cabinet {
-  min-width: 187px;
-  height: 82px;
-  border-radius: 30px;
-  border: 6px solid red;
+  height: 8vw;
+  border: 0.6vw solid red;
   display: flex;
   justify-content: center;
   align-items: center;
   color: red;
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 4vw;
+
 }
 
 
