@@ -11,11 +11,9 @@ import { RouterView } from 'vue-router'
   margin: 0;
   padding: 0;
   transition-duration: .2s;
+  border-radius: 2vw;
 }
-html, #app {
-  width: 100%;
-  height: 100%;
-}
+
 
 body {
   background-color: rgb(56, 104, 216);

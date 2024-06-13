@@ -1,5 +1,11 @@
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+import Ks54Video from '../components/Ks54Video.vue';
+
+export default defineComponent({
+  components: {
+    Ks54Video
+  },
   data() {
     return {
       date: new Date(),
@@ -24,7 +30,7 @@ export default {
       }
     },
   }
-}
+});
 
 </script>
 
@@ -44,7 +50,7 @@ export default {
             }}
           </p>
         </div>
-        <div class="col">
+        <div class="col col2">
           <p>{{ CheckingZeroAdditionTime(this.date.getHours()) }}:{{ CheckingZeroAdditionTime(this.date.getMinutes()) }}
           </p>
         </div>
@@ -55,6 +61,10 @@ export default {
   <main>
     <div class="row">
       <div class="col-xl-5 col process">
+        <div class="cart">
+          <p class="num_doc">A3</p>
+          <p class="window">Окно 3</p>
+        </div>
         <div class="cart">
           <p class="num_doc">A4</p>
           <p class="window">Окно 3</p>
@@ -81,8 +91,9 @@ export default {
         </div>
       </div>
       <div class="col col2">
-        <div class="row video-mask">
-          <video src="../asset\KS54_2012.mp4" autoplay muted playsinline type="video/mp4"></video>
+        <div class="row video_mask">
+          <!-- Видио -->
+          <Ks54Video></Ks54Video>
         </div>
         <div class="row queue">
           <h2>Следующие в очереде</h2>
@@ -100,7 +111,7 @@ export default {
 
 <style scoped>
 header {
-  margin: 20px 30px 40px 30px;
+  margin: 1vw 1.5vw 1.5vw 0.9vw;
 }
 
 header .data_nav {
@@ -109,20 +120,23 @@ header .data_nav {
   align-items: center;
   align-content: center;
   justify-content: center;
-  gap: 20px;
+  gap: 2vw;
 }
 
 header .data_nav div {
-  padding: 5px 15px;
+  padding: 0.5vw;
   background-color: #ffffff;
-  text-align: center;
-  border-radius: 15px;
+
 }
 
 header .data_nav p {
   color: rgba(56, 104, 216, 0.9);
   font-weight: 800;
-  font-size: 32px;
+  font-size: 3.5vw;
+}
+
+header .data_nav .col2 {
+  width: 15vw;
 }
 
 header h1 {
@@ -135,38 +149,36 @@ header img {
   width: 13vw;
 }
 
-main  {
-  height: 100%;
-  padding: 0 25px 0 5px;
+main {
+  padding: 0 1.5vw 0 0.2vw;
 }
-main > .row  {
-  height: 75%;
-}
+
 .col2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .process {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: nowrap;
-  gap: 25px;
-  padding-left: 30px;
+  gap: 1.6vw;
+  padding-left: 1.5vw;
 }
 
 .process .cart {
-  padding: 10px 40px;
+  padding: 0.5vw 2vw;
   width: 100%;
   display: flex;
   justify-content: space-between;
   background-color: #ffffff;
-  border-radius: 30px;
 }
+
 .process .cart p {
-  font-size: 35px;
+  font-size: 2vw;
   font-weight: 900;
   color: rgb(56, 104, 216);
 }
@@ -174,35 +186,30 @@ main > .row  {
 .queue {}
 
 .queue h2 {
-  font-size: 40px;
+  font-size: 2.5vw;
   color: #ffffff;
 }
 
 .queue .carts {
   width: 100%;
-  height: 120px;
+  margin-top: 0.7vw;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 28px;
+  gap: 1.5vw;
 }
 
 .queue .cart {
-  width: 150px;
-  height: 90px;
+  width: 7.3vw;
+  height: 5vw;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--button-color);
-  border-radius: 30px;
-  font-size: 57px;
+
+  font-size: 3.5vw;
   font-weight: 700;
   color: #ffffff;
-}
-
-video {
-  /* height: 30vw; */
-  border-radius: 30px;
 }
 </style>

@@ -1,5 +1,7 @@
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
   data() {
     return {
       date: new Date(),
@@ -78,7 +80,7 @@ export default {
       this.preglossion_button = true;
     }
   }
-}
+})
 </script>
 
 <template>
