@@ -7,7 +7,7 @@ export default {
     }
   },
   mounted() {
-
+    this.playVid()
   },
   methods: {
     /*Запускает селедущее видио при ощибки и при заканчивание*/
@@ -18,6 +18,12 @@ export default {
         this.video_i = 0
       }
     },
+    playVid() {
+      let x = document.querySelector('video');
+      setInterval(()=> {
+        x.play();
+      }, 10000)
+    }
   }
 }
 </script>
