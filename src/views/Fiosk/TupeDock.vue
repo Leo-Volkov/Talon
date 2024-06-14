@@ -20,14 +20,22 @@ export default defineComponent({
   <main>
     <h1>Выюирите тип подачи заявления</h1>
     <div class="row">
-      <a href="/kiosk/GetTalon" class="col">
-        <div>Бюджет</div>
+      <button class="col">
+      <div>Бюджет</div>
+        <p>Рассматриваю только бюджетную форму поступления</p>
+      </button>
+      <button class="col">
+        <div>Внебюджет</div>
+        <p>Хочу заключить договор на внебюджет</p>
+      </button> 
+      <!-- <a href="/kiosk/GetTalon" class="col">
+      <div>Бюджет</div>
         <p>Рассматриваю только бюджетную форму поступления</p>
       </a>
       <a href="/kiosk/AccordDock" class="col">
         <div>Внебюджет</div>
         <p>Хочу заключить договор на внебюджет</p>
-      </a>
+      </a> -->
     </div>
   </main>
 </template>
