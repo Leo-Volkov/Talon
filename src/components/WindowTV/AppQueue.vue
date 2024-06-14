@@ -16,12 +16,12 @@ export default {
 
 <template>
   <div class="queue">
-    <h2>Следующие в очереде</h2>
+    <h2>Следующие в очереди</h2>
     <div class="carts">
-      <div class="cart">{{ "A10" }}</div>
-      <div class="cart">{{ "A11" }}</div>
-      <div class="cart">{{ "A12" }}</div>
-      <div class="cart">{{ "A13" }}</div>
+      <div class="cart">{{ "ВБ10" }}</div>
+      <div class="cart">{{ "ВБ11" }}</div>
+      <div class="cart">{{ "ВБ12" }}</div>
+      <div class="cart">{{ "ВБ13" }}</div>
     </div>
   </div>
 </template>
@@ -43,8 +43,9 @@ export default {
 }
 
 .queue .cart {
-  width: 7.3vw;
-  height: 5vw;
+  /* width: 7.3; */
+padding: 0.1vw 0.5vw;
+  /* height: 5vw; */
   display: flex;
   justify-content: center;
   align-items: center;

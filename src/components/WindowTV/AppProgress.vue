@@ -60,12 +60,12 @@ export default defineComponent({
   display: flex;
   justify-content: space-between;
   background-color: #ffffff;
-  color: rgb(56, 104, 216);
+  color:  var(--button-color);
 }
 
 .process .cart p {
   font-size: 3vw;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 
