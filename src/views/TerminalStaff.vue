@@ -1,14 +1,15 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import NextQueue from '../components/Staff/NextQueue.vue';
+import AppHeader from '../components/Staff/StaffHeader.vue'
 
 export default defineComponent({
   components: {
-    NextQueue
+    NextQueue,
+    AppHeader
   },
   data() {
     return {
-      date: new Date(),
       event_preglossion: true,
       activating_call_button: true,
       preglossion_button: true,
@@ -21,24 +22,8 @@ export default defineComponent({
     }
   },
   mounted() {
-    this.startTimer()
   },
   methods: {
-    // Включение и обновление времени
-    startTimer() {
-      window.setInterval(() => {
-        this.date = new Date()
-      }, 1000);
-    },
-    // испровляет формат даты и времени
-    CheckingZeroAdditionTime(getTupeDate) {
-      if (getTupeDate < 10) {
-        return "0" + getTupeDate;
-      } else {
-        return getTupeDate;
-      }
-    },
-
     /* Приглашение по талончику */
     invite_Ticket() {
       this.preglossion_button = false;
@@ -67,16 +52,7 @@ export default defineComponent({
 
 <template>
   <header>
-    <div class="row">
-      <h1 class="col">Электронная<br>очередь</h1>
-      <div class="col align-self-center row data_nav">
-        <p class="col">{{ '1' }} каб.</p>
-        <p class="col">{{ CheckingZeroAdditionTime(this.date.getDate()) }}.{{
-          CheckingZeroAdditionTime(this.date.getMonth() + 1) }}</p>
-        <p class="col">{{ CheckingZeroAdditionTime(this.date.getHours()) }}:{{
-          CheckingZeroAdditionTime(this.date.getMinutes()) }}</p>
-      </div>
-    </div>
+    <AppHeader></AppHeader>
   </header>
   <main>
     <section class="row justify-content-around" id="1">
@@ -148,25 +124,6 @@ export default defineComponent({
 header {
   color: #ffffff;
   margin: 2vh;
-}
-
-header .data_nav {
-  border: 0.6vw solid var(--button-color);
-  padding: 0.6vw 0.5vw;
-  margin-right: 1.5vw;
-}
-
-header .data_nav p {
-  text-align: center;
-  margin: 0;
-  /* width: 14vw; */
-
-  font-size: 2.5vw;
-}
-
-header h1 {
-  font-size: 3.5vw;
-  text-align: left;
 }
 
 main {

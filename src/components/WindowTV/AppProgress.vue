@@ -20,7 +20,7 @@ export default defineComponent({
 
 <template>
   <div class="process">
-    <div  id="0" class="cart">
+    <div  id="0" class="cart mirth_cart">
       <p class="num_doc">{{ "Б4" }}</p>
       <p class="window">Окно 1</p>
     </div>
@@ -79,7 +79,7 @@ export default defineComponent({
     background-color: red;
     color: #ffffff;
   }
-  60% {
+  75% {
     background-color: red;
     color: #ffffff;
   }

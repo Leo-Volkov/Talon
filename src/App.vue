@@ -15,7 +15,10 @@ import { RouterView } from 'vue-router'
   font-weight: 700;
 }
 
-
+html {
+  height: 80%;
+  width: 99%;
+}
 body {
   background-color: rgb(56, 104, 216);
 }
